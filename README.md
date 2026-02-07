@@ -6,3 +6,4 @@ A small project build with HTML and CSS
 
 - v1: Base Structure
 - v2: Style and visual design
+- v3: Responsive design

@@ -123,3 +123,65 @@ header img {
     background: #171515;
     color: #fff;
 }
+
+/* Responsive design */
+
+/* Laptop screen */
+
+@media screen and (max-width: 1440px) {
+    .container {
+        width: 35%;
+    }
+
+    .information .name {
+        font-size: 2.375rem;
+    }
+
+    .information .major {
+        font-size: 1.125rem;
+    }
+
+    .information .description {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet screen */
+
+@media screen and (max-width: 834px) {
+    .container {
+        width: 60%;
+    }
+
+    .information .name {
+        font-size: 2.125rem;
+    }
+
+    .information .major {
+        font-size: 1.125rem;
+    }
+
+    .information .description {
+        font-size: 0.875rem;
+    }
+}
+
+/* mobil screen */
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 60%;
+    }
+
+    .information .name {
+        font-size: 1.5rem;
+    }
+
+    .information .major {
+        font-size: 0.75rem;
+    }
+
+    .information .description {
+        font-size: 0.75rem;
+    }
+}
