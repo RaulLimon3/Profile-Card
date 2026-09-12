@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
 }
 
 *,
@@ -45,143 +44,97 @@ a {
     color: inherit;
 }
 
-/* Card design */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-main {
+.main {
     width: 100%;
-    height: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container {
-    background: #ffc380;
-    width: 500px;
-    padding: 20px;
-    border-radius: 12px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background: #F6F7EB;
+    padding: 16px;
+    border-radius: 18px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-/* Head design */
+.card-hidde { display: none; }
 
-header img {
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+.card-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* Information design */
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-.information .name {
-    font-size: 3rem;
+.header-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.header-resume {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1;
+}
+
+.name {
     font-weight: 700;
     margin-bottom: 0;
 }
 
-.information .major {
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.information .description {
-    font-size: 1.125rem;
+.major {
+    font-size: 14px;
     font-weight: 300;
 }
 
-.information .description span {
-    font-weight: bold;
+.header-brief {
+    font-size: 14px;
+    font-weight: 400;
 }
 
-/* Social media design */
-
-.social-media {
+.card-cta {
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 25%;
 }
 
-.social-media a {
-    font-size: 2rem;
-    text-align: center;
-    padding: 5px 10px;
-}
-
-.social-media a:hover {
-    background: #fff;
-    border-radius: 100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.social-media .linkedin:hover {
-    background: #0E76A8;
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #000;
     color: #fff;
+    border-radius: 24px;
+    font-weight: 700;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.social-media .github:hover {
-    background: #171515;
-    color: #fff;
+.btn:hover {
+    background: #393E41;
 }
 
-/* Responsive design */
-
-/* Laptop screen */
-
-@media screen and (max-width: 1440px) {
-    .container {
-        width: 35%;
-    }
-
-    .information .name {
-        font-size: 2.375rem;
-    }
-
-    .information .major {
-        font-size: 1.125rem;
-    }
-
-    .information .description {
-        font-size: 1rem;
-    }
-}
-
-/* Tablet screen */
-
-@media screen and (max-width: 834px) {
-    .container {
-        width: 60%;
-    }
-
-    .information .name {
-        font-size: 2.125rem;
-    }
-
-    .information .major {
-        font-size: 1.125rem;
-    }
-
-    .information .description {
-        font-size: 0.875rem;
-    }
-}
-
-/* mobil screen */
-
-@media screen and (max-width: 480px) {
-    .container {
-        width: 60%;
-    }
-
-    .information .name {
-        font-size: 1.5rem;
-    }
-
-    .information .major {
-        font-size: 0.75rem;
-    }
-
-    .information .description {
-        font-size: 0.75rem;
-    }
+.btn:active {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
