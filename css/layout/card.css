@@ -8,12 +8,6 @@
     gap: 12px;
 }
 
-.card__heading {}
-
-.card__body {}
-
-.card__footer {}
-
 .card-content {
     max-height: 70dvh;
     overflow-x: scroll;
@@ -23,19 +17,25 @@
     gap: 12px;
 }
 
-.card-info {
+.card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card__body {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.card-cta {
+.card__footer {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.card-form {
+.card__form {
     margin-top: 16px;
     width: 100%;
 }

@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-.carousel-item {
+.carousel__item {
     min-width: 100%;
     display: flex;
     flex-direction: column;
@@ -15,11 +15,11 @@
     font-weight: 900;
 }
 
-.carousel-image {
+.carousel__image {
     align-self: center;
     width: 80%;
 }
 
-.carousel-name {
+.carousel__name {
     font-size: 24px;
 }

@@ -1,0 +1,15 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section__title {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #E94F37;
+}
+
+.section__description {
+    font-weight: 300;
+}

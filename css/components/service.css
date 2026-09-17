@@ -1,0 +1,16 @@
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #44BBA4;
+}
+
+.service-item__title {
+    font-weight: 800;
+}
