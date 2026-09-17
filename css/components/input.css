@@ -1,0 +1,41 @@
+.input-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.required {
+    color: #E94F37;
+    font-weight: 300;
+}
+
+.input {
+    width: 100%;
+    padding: 8px 4px;
+    outline: none;
+    border: 1px solid #a0a7ac;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.input::placeholder {
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.input:hover {
+    border-color: #6b757a;
+}
+
+.input:focus {
+    border-color: #393E41;
+}
+
+.input--error {
+    border: 1px solid #E94F37;
+}

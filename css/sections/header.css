@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.header-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.header-resume {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1;
+}
+
+.name {
+    color: #E94F37;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.major {
+    color: #3F88C5;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.header-brief {
+    font-size: 14px;
+    font-weight: 400;
+}
