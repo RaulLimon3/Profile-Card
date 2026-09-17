@@ -81,8 +81,6 @@ textarea {
     gap: 12px;
 }
 
-.card-hidde { display: none; }
-
 .card-content {
     max-height: 70dvh;
     overflow-x: scroll;
@@ -92,7 +90,7 @@ textarea {
     gap: 12px;
 }
 
-.header {
+.card__header {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -112,13 +110,13 @@ textarea {
     line-height: 1;
 }
 
-.name {
+.header-resume__name {
     color: #E94F37;
     font-weight: 700;
     margin-bottom: 0;
 }
 
-.major {
+.header-resume__major {
     color: #3F88C5;
     font-size: 14px;
     font-weight: 300;
@@ -129,7 +127,7 @@ textarea {
     font-weight: 400;
 }
 
-.card-info {
+.card__body {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -141,17 +139,17 @@ textarea {
     gap: 16px;
 }
 
-.subtitle {
+.section__title {
     margin-bottom: 0;
     font-weight: 600;
     color: #E94F37;
 }
 
-.section-description {
+.section__description {
     font-weight: 300;
 }
 
-.card-cta {
+.card__footer {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -188,23 +186,29 @@ textarea {
     color: #44BBA4;
 }
 
-.service-title {
+.service-item__title {
     font-weight: 800;
 }
 
-.stack-tecnologies {
+.technologies-stacks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stack {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.technologies-carousel {
+.carousel {
     display: flex;
     overflow-y: scroll;
     width: 100%;
 }
 
-.carousel-item {
+.carousel__item {
     min-width: 100%;
     display: flex;
     flex-direction: column;
@@ -215,12 +219,12 @@ textarea {
     font-weight: 900;
 }
 
-.carousel-image {
+.carousel__image {
     align-self: center;
     width: 80%;
 }
 
-.carousel-name {
+.carousel__name {
     font-size: 24px;
 }
 
@@ -259,7 +263,7 @@ textarea {
     background: #171515;
 }
 
-.card-form {
+.card__form {
     margin-top: 16px;
     width: 100%;
 }
@@ -271,18 +275,18 @@ textarea {
     gap: 12px;
 }
 
-.form-subtitle {
+.form__subtitle {
     font-size: 28px;
     margin-bottom: 0;
     font-weight: 700;
     color: #E94F37;
 }
 
-.form-description {
+.form__description {
     font-weight: 300;
 }
 
-.input-field {
+.form__field {
     width: 100%;
     display: flex;
     flex-direction: column;
