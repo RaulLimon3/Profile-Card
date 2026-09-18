@@ -9,7 +9,7 @@
 }
 
 .card-content {
-    max-height: 70dvh;
+    max-height: 65dvh;
     overflow-x: scroll;
     width: 100%;
     display: flex;

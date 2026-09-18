@@ -1,6 +1,6 @@
 .main {
     width: 100%;
-    min-height: 100dvh;
+    height: 100dvh;
     padding: 14px;
     display: flex;
     justify-content: center;
