@@ -1,11 +1,25 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .header-image {
-    width: 100%;
     border-radius: 12px;
     overflow: hidden;
 }
 
+.header-image--shrink {
+    border-radius: 50%;
+}
+
+.img--shrink {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
 .header-resume {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -16,6 +30,11 @@
     color: #E94F37;
     font-weight: 700;
     margin-bottom: 0;
+    margin-top: 0;
+}
+
+.header-resume__name--shrink {
+    font-size: 24px;
 }
 
 .header-resume__major {

@@ -23,6 +23,13 @@
     gap: 12px;
 }
 
+.card__header--shrink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
 .card__body {
     display: flex;
     flex-direction: column;
