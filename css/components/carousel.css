@@ -1,19 +1,22 @@
 .technologies-stacks {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
 }
 
 .stack {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .carousel {
     display: flex;
     overflow-y: scroll;
     width: 100%;
+    max-width: 70%;
 }
 
 .carousel__item {
