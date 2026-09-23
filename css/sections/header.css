@@ -54,3 +54,9 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+@media screen and (min-width: 1024px) {
+    .header-btn {
+        display: none;
+    }
+}
