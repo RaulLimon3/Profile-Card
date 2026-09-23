@@ -40,7 +40,7 @@
                     </div>
                 </header>
                 <div class="card-content">
-                    <div class="card__body">
+                    <div class="card__body hidde">
                         <section class="section">
                             <h2 class="section__title">About Me</h2>
                             <p class="section__description">
@@ -175,10 +175,33 @@
                             </div>
                         </section>
                     </div>
-                    <div class="card__form hidde">
+                    <div class="card__form">
                         <form action="#" method="get" class="form">
                             <h3 class="form__subtitle">Let's connect</h3>
                             <p class="form__description">Open to opportunities</p>
+                            <fieldset class="form__field-options">
+                                <legend class="label">I'm interested in...</legend>
+                                <label class="input input-checkbox">
+                                    <input type="radio" name="interest" id="website" value="website" class="checkbox">
+                                    Bussiness Website
+                                </label>
+                                <label class="input input-checkbox">
+                                    <input type="radio" name="interest" id="landingPage" value="landingpage" class="checkbox">
+                                    landing Page
+                                </label>
+                                <label class="input input-checkbox">
+                                    <input type="radio" name="interest" id="Dashboard" value="dashboard" class="checkbox">
+                                    Dashboard
+                                </label>
+                                <label class="input input-checkbox">
+                                    <input type="radio" name="interest" id="ecommerce" value="ecommerce" class="checkbox">
+                                    E-commerce interface
+                                </label>
+                                <label class="input input-checkbox">
+                                    <input type="radio" name="interest" id="webapp" value="webapp" class="checkbox">
+                                    Web application interface
+                                </label>
+                            </fieldset>
                             <div class="form__field">
                                 <label class="label" for="name">Name: <span class="required">*</span></label>
                                 <input class="input" type="text" name="name" id="name" placeholder="Your name">
@@ -196,7 +219,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="card__footer">
+                <div class="card__footer hidde">
                     <button class="btn">About me</button>
                 </div>
             </div>

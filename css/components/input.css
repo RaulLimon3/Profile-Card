@@ -32,3 +32,19 @@
 .input--error {
     border: 1px solid #E94F37;
 }
+
+.input-checkbox {
+    padding: 8px 4px;
+    text-align: center;
+    background: #fff;
+    transition: background 0.2s ease;
+}
+
+.input-checkbox:has(.checkbox:checked) {
+    background: #393E41;
+    color: #fff;
+}
+
+.checkbox {
+    appearance: none;
+}
