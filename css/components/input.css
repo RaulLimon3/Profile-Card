@@ -34,6 +34,7 @@
 }
 
 .input-checkbox {
+    cursor: pointer;
     padding: 8px 4px;
     text-align: center;
     background: #fff;

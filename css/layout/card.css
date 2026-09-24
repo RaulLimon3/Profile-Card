@@ -44,6 +44,9 @@
 .card__form {
     margin-top: 16px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 @media screen and (min-width: 768px) {
@@ -53,6 +56,13 @@
 
     .card__body {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .card__form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 }
 
@@ -79,7 +89,7 @@
 
     .card__footer {
         grid-row: 1 / 2;
-        grid-column:  3 / 2;
+        grid-column: 3 / 2;
         justify-content: end;
     }
 
