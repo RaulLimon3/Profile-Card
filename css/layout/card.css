@@ -54,10 +54,6 @@
         height: 80dvh;
     }
 
-    .card-content:has(.hidde) {
-        display: block;
-    }
-
     .card__body {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
     }
