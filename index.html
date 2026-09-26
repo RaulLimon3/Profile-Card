@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/59b162e155.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
     <main class="main">
         <div class="container">
             <div class="card">
-                <header class="card__header">
+                <header class="card__header" id="headerContainer">
                     <div class="header-container">
                         <div class="header-image">
                             <img src="./public/img/profile-img.jpeg" class="img"
@@ -33,13 +34,13 @@
                             </p>
                         </div>
                     </div>
-                    <div class="header-btn">
-                        <button type="button" class="btn">
+                    <div class="header-btn btn-container">
+                        <button type="button" class="btn" id="closedContent">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
                 </header>
-                <div class="card-content is-hidden">
+                <div class="card-content is-hidden" id="bodyContainer">
                     <div class="card__body">
                         <section class="section">
                             <h2 class="section__title">About Me</h2>
@@ -221,8 +222,8 @@
                         </form>
                     </div>
                 </div>
-                <div class="card__footer">
-                    <button class="btn">About me</button>
+                <div class="card__footer btn-container">
+                    <button class="btn" id="openContent">About me</button>
                 </div>
             </div>
         </div>
