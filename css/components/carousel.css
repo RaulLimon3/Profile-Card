@@ -14,7 +14,7 @@
 
 .carousel {
     display: flex;
-    overflow-y: scroll;
+    overflow-x: scroll;
     width: 100%;
     max-width: 70%;
 }

@@ -6,4 +6,8 @@
     .card-content.is-hidden {
         display: block;
     }
+    
+    .btn-form.is-hidden {
+        display: block;
+    }
 }
