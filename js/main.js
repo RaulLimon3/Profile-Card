@@ -1,20 +1,49 @@
-const openBtn = document.getElementById('openContent');
+const openContentBtn = document.getElementById('openContent');
+const openFormBtn = document.getElementById('openForm');
 const closedBtn = document.getElementById('closedContent');
-const header = document.getElementById('headerContainer');
-const body = document.getElementById('bodyContainer');
+const headerContainer = document.getElementById('headerContainer');
+const bodyContainer = document.getElementById('bodyContainer');
+const bodyContent = document.getElementById('bodyContent');
+const formContainer = document.getElementById('formContainer');
 
-openBtn.addEventListener('click', (e) => {
+openContentBtn.addEventListener('click', (e) => {
     const container = e.target.closest('.btn-container');
     if (!container) return
-    header.classList.add('card__header--shrink');
-    body.classList.remove('is-hidden');
-    openBtn.textContent = 'Get in touch';
+    headerContainer.classList.add('card__header--shrink');
+    bodyContainer.classList.remove('is-hidden');
+    openContentBtn.classList.add('is-hidden');
+    openFormBtn.classList.remove('is-hidden');
+});
+
+openFormBtn.addEventListener('click', (e) => {
+    const container = e.target.closest('.btn-container');
+    if (!container) return;
+    bodyContent.classList.add('is-hidden');
+    formContainer.classList.remove('is-hidden');
+    openFormBtn.classList.add('is-hidden');
 });
 
 closedBtn.addEventListener('click', (e) => {
     const container = e.target.closest('.btn-container');
     if (!container) return;
-    header.classList.remove('card__header--shrink');
-    body.classList.add('is-hidden');
-    openBtn.textContent = 'About me';
+    headerContainer.classList.remove('card__header--shrink');
+    bodyContainer.classList.add('is-hidden');
+    openContentBtn.textContent = 'About me';
 });
+
+/*
+    Header expandido
+    resumen
+    Boton de About me
+
+    Clic en About me
+    Encoje el header y muestra el boton de cerrar
+    Muestra el contenido detallado
+    Cambia el botón de texto a Get in touch
+
+    Clic en Get in touch
+    Oculta el contenido detallado 
+    Muestra el formulario de contacto
+    Oculta el boton de Get in touch
+
+*/
