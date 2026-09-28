@@ -8,7 +8,7 @@ const formContainer = document.getElementById('formContainer');
 
 openContentBtn.addEventListener('click', (e) => {
     const container = e.target.closest('.btn-container');
-    if (!container) return
+    if (!container) return;
     headerContainer.classList.add('card__header--shrink');
     bodyContainer.classList.remove('is-hidden');
     openContentBtn.classList.add('is-hidden');
@@ -28,7 +28,10 @@ closedBtn.addEventListener('click', (e) => {
     if (!container) return;
     headerContainer.classList.remove('card__header--shrink');
     bodyContainer.classList.add('is-hidden');
-    openContentBtn.textContent = 'About me';
+    bodyContent.classList.remove('is-hidden');
+    formContainer.classList.add('is-hidden');
+    openContentBtn.classList.remove('is-hidden');
+    openFormBtn.classList.add('is-hidden');
 });
 
 /*
