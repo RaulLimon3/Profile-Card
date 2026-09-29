@@ -5,31 +5,41 @@ const headerContainer = document.getElementById('headerContainer');
 const bodyContainer = document.getElementById('bodyContainer');
 const bodyContent = document.getElementById('bodyContent');
 const formContainer = document.getElementById('formContainer');
-// const closedContainerBtn = document.querySelector('.header-btn');
+const closedContainerBtn = document.querySelector('.header-btn');
 
-// const mediaQuery = window.matchMedia('(min-width: 768px)');
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 
 let currentView = headerContainer.dataset.view;
 let lastView = null;
 
-// const handleContent = (e) => {
-//     if (e.matches) {
-//         currentView = bodyContainer.dataset.view;
-//         openFormBtn.addEventListener('click', (e) => {
-//             const container = e.target.closest('.btn-container');
-//             if (!container) return;
-//             lastView = currentView;
-//             bodyContent.classList.add('is-hidden');
-//             formContainer.classList.remove('is-hidden');
-//             currentView = formContainer.dataset.view;
-//             openFormBtn.classList.add('is-hidden');
-//             closedContainerBtn.style.display = 'block';
-//         });
-//     }
-// };
+const handleContent = (e) => {
+    if (e.matches) {
+        closedContainerBtn.style.display = 'none';
+        // currentView = bodyContainer.dataset.view;
+        openFormBtn.addEventListener('click', (e) => {
+            const container = e.target.closest('.btn-container');
+            if (!container) return;
+            // lastView = currentView;
+            bodyContent.classList.add('is-hidden');
+            formContainer.classList.remove('is-hidden');
+            // currentView = formContainer.dataset.view;
+            openFormBtn.classList.add('is-hidden');
+            closedContainerBtn.style.display = 'block';
+        });
+        closedBtn.addEventListener('click', (e) => {
+            const container = e.target.closest('.btn-container');
+            if (!container) return;
+            formContainer.classList.add('is-hidden');
+            bodyContent.classList.remove('is-hidden');
+            openFormBtn.classList.remove('is-hidden');
+            closedContainerBtn.style.display = 'none';
+        });
+    }
+};
 
-// mediaQuery.addEventListener('change', handleContent);
-// handleContent(mediaQuery);
+mediaQuery.addEventListener('change', handleContent);
+handleContent(mediaQuery);
+
 
 openContentBtn.addEventListener('click', (e) => {
     const container = e.target.closest('.btn-container');
