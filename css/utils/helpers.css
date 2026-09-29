@@ -2,12 +2,12 @@
     display: none;
 }
 
+.is-show {
+    display: block;
+}
+
 @media screen and (min-width: 768px) {
     .card-content.is-hidden {
-        display: block;
-    }
-    
-    .btn-form.is-hidden {
         display: block;
     }
 }
