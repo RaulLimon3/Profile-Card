@@ -6,6 +6,7 @@ const bodyContainer = document.getElementById('bodyContainer');
 const bodyContent = document.getElementById('bodyContent');
 const formContainer = document.getElementById('formContainer');
 const closedContainerBtn = document.querySelector('.header-btn');
+const cardFooter = document.querySelector('.card__footer');
 
 const mediaQuery = window.matchMedia('(min-width: 768px)');
 
@@ -14,7 +15,7 @@ let lastView = null;
 
 const handleContent = (e) => {
     if (e.matches) {
-        closedContainerBtn.style.display = 'none';
+        closedContainerBtn.classList.add('is-hidden');
         // currentView = bodyContainer.dataset.view;
         openFormBtn.addEventListener('click', (e) => {
             const container = e.target.closest('.btn-container');
@@ -24,7 +25,8 @@ const handleContent = (e) => {
             formContainer.classList.remove('is-hidden');
             // currentView = formContainer.dataset.view;
             openFormBtn.classList.add('is-hidden');
-            closedContainerBtn.style.display = 'block';
+            closedContainerBtn.classList.add('is-show');
+            cardFooter.classList.add('is-hidden');
         });
         closedBtn.addEventListener('click', (e) => {
             const container = e.target.closest('.btn-container');
@@ -32,7 +34,9 @@ const handleContent = (e) => {
             formContainer.classList.add('is-hidden');
             bodyContent.classList.remove('is-hidden');
             openFormBtn.classList.remove('is-hidden');
-            closedContainerBtn.style.display = 'none';
+            closedContainerBtn.classList.remove('is-hidden');
+            closedContainerBtn.classList.remove('is-show');
+            cardFooter.classList.remove('is-hidden');
         });
     }
 };
