@@ -1,3 +1,23 @@
+const viewElements = document.querySelectorAll('.view-element');
+
+let vistaActual = viewElements[0].dataset.view;
+// console.log(vistaActual);
+// vistaActual.forEach(view => console.log(view.dataset.view));
+let ultimaVista = null;
+
+document.addEventListener('click', (e) => {
+    const buttons = e.target.closest('.btn');
+    if (!buttons) return;
+    let idButton = buttons.id;
+    if (idButton === 'openContent') {
+        console.log('Open info');
+    } else if (idButton === 'openForm') {
+        console.log('Open form');
+    } else if (idButton === 'closedContent') {
+        console.log('Closed content');
+    }
+});
+
 const openContentBtn = document.getElementById('openContent');
 const openFormBtn = document.getElementById('openForm');
 const closedBtn = document.getElementById('closedContent');
