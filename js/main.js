@@ -17,18 +17,30 @@ document.addEventListener('click', (e) => {
         openFormBtn.classList.add('is-show');
         currentView = viewElements[1].dataset.view;
     } else if (idButton === 'openForm') {
-        console.log('Open form');
+        lastView = currentView;
+        bodyContent.classList.add('is-hidden');
+        formContainer.classList.remove('is-hidden');
+        currentView = viewElements[2].dataset.view;
+        openFormBtn.classList.remove('is-show');
     } else if (idButton === 'closedContent') {
-        handleClosedBtn(currentView);
+        currentView = handleClosedBtn(currentView, lastView);
+        console.log(currentView);
     }
 });
 
-const handleClosedBtn = (currentView) => {
+const handleClosedBtn = (currentView, prevView) => {
     if (currentView === 'details') {
         headerContainer.classList.remove('card__header--shrink');
         bodyContainer.classList.add('is-hidden');
         openContentBtn.classList.remove('is-hidden');
         openFormBtn.classList.remove('is-show');
+        return prevView;
+    } else {
+        formContainer.classList.add('is-hidden');
+        bodyContent.classList.remove('is-hidden');
+        openFormBtn.classList.remove('is-hidden');
+        openFormBtn.classList.add('is-show');
+        return prevView;
     }
 };
 
