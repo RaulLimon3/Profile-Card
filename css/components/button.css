@@ -18,7 +18,11 @@
 
 .btn-form {
     display: none;
-} 
+}
+
+.btn-close {
+    display: none;
+}
 
 @media screen and (min-width: 768px) {
     .btn-content {
