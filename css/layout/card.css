@@ -33,6 +33,14 @@
     display: grid;
     grid-template-columns: minmax(220px, 1fr);
     gap: 16px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.card__body.is-entering {
+    opacity: 0;
+    transform: translateY(12px);
 }
 
 .card__footer {

@@ -36,6 +36,9 @@ openFormBtn.addEventListener('click', (e) => {
     openFormBtn.classList.remove('is-show');
     bodyContent.classList.add('is-hidden');
     formContainer.classList.remove('is-hidden');
+    requestAnimationFrame(() => {
+        formContainer.classList.add('is-visible');
+    });
 });
 
 closedFormBtn.addEventListener('click', (e) => {
@@ -45,8 +48,21 @@ closedFormBtn.addEventListener('click', (e) => {
     headerBtn.classList.remove('is-show');
     closedFormBtn.classList.remove('is-show');
     openFormBtn.classList.add('is-show');
-    bodyContent.classList.remove('is-hidden');
-    formContainer.classList.add('is-hidden');
+    formContainer.classList.remove('is-visible');
+});
+
+formContainer.addEventListener('transitionend', (e) => {
+    if (e.target !== formContainer || e.propertyName !== 'opacity') return;
+
+    if (!formContainer.classList.contains('is-visible')) {
+        formContainer.classList.add('is-hidden');
+        bodyContent.classList.add('is-entering');
+        bodyContent.classList.remove('is-hidden');
+
+        requestAnimationFrame(() => {
+            bodyContent.classList.remove('is-entering');
+        });
+    }
 });
 
 const handleButtons = (e) => {
