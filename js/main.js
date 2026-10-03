@@ -1,58 +1,94 @@
 const viewElements = document.querySelectorAll('.view-element');
-
-let currentView = viewElements[0].dataset.view;
-// console.log(vistaActual);
-// vistaActual.forEach(view => console.log(view.dataset.view));
-let lastView = null;
-
-document.addEventListener('click', (e) => {
-    const buttons = e.target.closest('.btn');
-    if (!buttons) return;
-    let idButton = buttons.id;
-    if (idButton === 'openContent') {
-        headerContainer.classList.add('card__header--shrink');
-        bodyContainer.classList.remove('is-hidden');
-        lastView = currentView;
-        openContentBtn.classList.add('is-hidden');
-        openFormBtn.classList.add('is-show');
-        currentView = viewElements[1].dataset.view;
-    } else if (idButton === 'openForm') {
-        lastView = currentView;
-        bodyContent.classList.add('is-hidden');
-        formContainer.classList.remove('is-hidden');
-        currentView = viewElements[2].dataset.view;
-        openFormBtn.classList.remove('is-show');
-    } else if (idButton === 'closedContent') {
-        currentView = handleClosedBtn(currentView, lastView);
-        console.log(currentView);
-    }
-});
-
-const handleClosedBtn = (currentView, prevView) => {
-    if (currentView === 'details') {
-        headerContainer.classList.remove('card__header--shrink');
-        bodyContainer.classList.add('is-hidden');
-        openContentBtn.classList.remove('is-hidden');
-        openFormBtn.classList.remove('is-show');
-        return prevView;
-    } else {
-        formContainer.classList.add('is-hidden');
-        bodyContent.classList.remove('is-hidden');
-        openFormBtn.classList.remove('is-hidden');
-        openFormBtn.classList.add('is-show');
-        return prevView;
-    }
-};
-
 const openContentBtn = document.getElementById('openContent');
+const closedContentBtn = document.getElementById('closedContent');
 const openFormBtn = document.getElementById('openForm');
-const closedBtn = document.getElementById('closedContent');
+const closedFormBtn = document.getElementById('closedForm');
 const headerContainer = document.getElementById('headerContainer');
 const bodyContainer = document.getElementById('bodyContainer');
 const bodyContent = document.getElementById('bodyContent');
 const formContainer = document.getElementById('formContainer');
-const closedContainerBtn = document.querySelector('.header-btn');
-const cardFooter = document.querySelector('.card__footer');
+
+openContentBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    closedFormBtn.classList.add('is-hidden');
+    headerContainer.classList.add('card__header--shrink');
+    bodyContainer.classList.remove('is-hidden');
+    openContentBtn.classList.add('is-hidden');
+    openFormBtn.classList.add('is-show');
+});
+
+closedContentBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    headerContainer.classList.remove('card__header--shrink');
+    bodyContainer.classList.add('is-hidden');
+    openContentBtn.classList.remove('is-hidden');
+    openFormBtn.classList.remove('is-show');
+});
+
+openFormBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    closedContentBtn.classList.add('is-hidden');
+    closedFormBtn.classList.remove('is-hidden');
+    openFormBtn.classList.remove('is-show');
+    bodyContent.classList.add('is-hidden');
+    formContainer.classList.remove('is-hidden');
+});
+
+closedFormBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    closedContentBtn.classList.remove('is-hidden');
+    closedFormBtn.classList.add('is-hidden');
+    openFormBtn.classList.add('is-show');
+    bodyContent.classList.remove('is-hidden');
+    formContainer.classList.add('is-hidden');
+});
+
+// let currentView = viewElements[0].dataset.view;
+// let lastView = null;
+
+// document.addEventListener('click', (e) => {
+//     const buttons = e.target.closest('.btn');
+//     if (!buttons) return;
+//     let idButton = buttons.id;
+//     if (idButton === 'openContent') {
+//         headerContainer.classList.add('card__header--shrink');
+//         bodyContainer.classList.remove('is-hidden');
+//         lastView = currentView;
+//         openContentBtn.classList.add('is-hidden');
+//         openFormBtn.classList.add('is-show');
+//         currentView = viewElements[1].dataset.view;
+//     } else if (idButton === 'openForm') {
+//         lastView = currentView;
+//         bodyContent.classList.add('is-hidden');
+//         formContainer.classList.remove('is-hidden');
+//         currentView = viewElements[2].dataset.view;
+//         console.log(currentView);
+//         openFormBtn.classList.remove('is-show');
+//     } else if (idButton === 'closedContent') {
+//         handleClosedBtn(lastView);
+//     }
+// });
+
+// const handleClosedBtn = (prevView) => {
+//     if (prevView === 'summary') {
+//         headerContainer.classList.remove('card__header--shrink');
+//         bodyContainer.classList.add('is-hidden');
+//         openContentBtn.classList.remove('is-hidden');
+//         openFormBtn.classList.remove('is-show');
+//         lastView = currentView;
+//     } else {
+//         formContainer.classList.add('is-hidden');
+//         bodyContent.classList.remove('is-hidden');
+//         openFormBtn.classList.remove('is-hidden');
+//         openFormBtn.classList.add('is-show');
+//         lastView = viewElements[0].dataset.view;
+//         console.log(prevView);
+//     }
+// };
 
 // const mediaQuery = window.matchMedia('(min-width: 768px)');
 
