@@ -16,6 +16,14 @@
     gap: 12px;
 }
 
+.form__error {
+    background: #E94F37;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
 .form__subtitle {
     font-size: 28px;
     margin-bottom: 0;

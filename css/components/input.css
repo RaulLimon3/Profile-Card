@@ -49,3 +49,8 @@
 .checkbox {
     appearance: none;
 }
+
+.input__error {
+    color: #E94F37;
+    font-weight: 300;
+}
