@@ -33,35 +33,80 @@ form.addEventListener('submit', (e) => {
     }
     errorMessage.classList.add('is-hidden');
     errorMessage.textContent = '';
+    if (!validateName(name)) return;
+    if (!validateEmail(email)) return;
+    if (!validateMessage(message)) return;
+    form.reset();
+});
+
+const validateName = (name) => {
+    const regexName = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
     if (name === '') {
         inputName.classList.add('input--error');
         nameError.classList.remove('is-hidden');
         nameError.textContent = 'Pon tu nombre por favor';
-        return;
+        return false;
+    }
+
+    if (name.length < 2) {
+        inputName.classList.add('input--error');
+        nameError.classList.remove('is-hidden');
+        nameError.textContent = 'Nombre no valido';
+        return false;
+    }
+
+    if (!regexName.test(name)) {
+        inputName.classList.add('input--error');
+        nameError.classList.remove('is-hidden');
+        nameError.textContent = 'El formato no es valido';
+        return false;
     }
     inputName.classList.remove('input--error');
     nameError.classList.add('is-hidden');
     nameError.textContent = '';
+    return true;
+};
+
+const validateEmail = (email) => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email === '') {
         inputEmail.classList.add('input--error');
         emailError.classList.remove('is-hidden');
         emailError.textContent = 'Colaca tu correo electronico por favor';
-        return;
+        return false;
+    }
+
+    if (!regexEmail.test(email)) {
+        inputEmail.classList.add('input--error');
+        emailError.classList.remove('is-hidden');
+        emailError.textContent = 'El correo electronico no es valido, introduce un correo valido';
+        return false;
     }
     inputEmail.classList.remove('input--error');
     emailError.classList.add('is-hidden');
     emailError.textContent = '';
+    return true;
+};
+
+const validateMessage = (message) => {
     if (message === '') {
         inputMessage.classList.add('input--error');
         messageError.classList.remove('is-hidden');
         messageError.textContent = 'Por favor escribe tu problema para llegar a tu solución';
-        return;
+        return false;
+    }
+
+    if (message.length < 40) {
+        inputMessage.classList.add('input--error');
+        messageError.classList.remove('is-hidden');
+        messageError.textContent = 'Explicame a detalle tu problema para llegar una solición optima';
+        return false;
     }
     inputMessage.classList.remove('input--error');
     messageError.classList.add('is-hidden');
-    messageError.textContent = '';
-    form.reset();
-});
+    messageError.textContent = ''
+    return true;
+};
 
 openContentBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
