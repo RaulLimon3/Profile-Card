@@ -19,7 +19,7 @@ const messageError = document.getElementById('messageError');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const options = document.querySelector('#options input[type="radio"]:checked');
+    const options = form.querySelector('#options input[type="radio"]:checked');
     const name = inputName.value.trim();
     const email = inputEmail.value.trim();
     const message = inputMessage.value.trim();
@@ -28,7 +28,7 @@ form.addEventListener('submit', (e) => {
         inputName.classList.add('input--error');
         inputEmail.classList.add('input--error');
         inputMessage.classList.add('input--error');
-        errorMessage.textContent = 'Por favor llena los campos';
+        errorMessage.textContent = 'Por favor llena los campos.';
         return;
     }
     errorMessage.classList.add('is-hidden');
@@ -42,70 +42,66 @@ form.addEventListener('submit', (e) => {
 const validateName = (name) => {
     const regexName = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
     if (name === '') {
-        inputName.classList.add('input--error');
-        nameError.classList.remove('is-hidden');
-        nameError.textContent = 'Pon tu nombre por favor';
+        showInputError(inputName, nameError, 'Pon tu nombre por favor.');
         return false;
     }
 
     if (name.length < 2) {
-        inputName.classList.add('input--error');
-        nameError.classList.remove('is-hidden');
-        nameError.textContent = 'Nombre no valido';
+        showInputError(inputName, nameError, 'Nombre no valido.');
         return false;
     }
 
     if (!regexName.test(name)) {
-        inputName.classList.add('input--error');
-        nameError.classList.remove('is-hidden');
-        nameError.textContent = 'El formato no es valido';
+        showInputError(inputName, nameError, 'El formato no es valido.');
         return false;
     }
-    inputName.classList.remove('input--error');
-    nameError.classList.add('is-hidden');
-    nameError.textContent = '';
+    clearInputError(inputName, nameError);
     return true;
 };
 
 const validateEmail = (email) => {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email === '') {
-        inputEmail.classList.add('input--error');
-        emailError.classList.remove('is-hidden');
-        emailError.textContent = 'Colaca tu correo electronico por favor';
+        showInputError(inputEmail, emailError, 'Coloca tu correo electronico por favor.');
         return false;
     }
 
     if (!regexEmail.test(email)) {
-        inputEmail.classList.add('input--error');
-        emailError.classList.remove('is-hidden');
-        emailError.textContent = 'El correo electronico no es valido, introduce un correo valido';
+        showInputError(inputEmail, emailError, 'El correo electronico no es valido, introduce un correo valido.');
         return false;
     }
-    inputEmail.classList.remove('input--error');
-    emailError.classList.add('is-hidden');
-    emailError.textContent = '';
+    clearInputError(inputEmail, emailError);
     return true;
 };
 
 const validateMessage = (message) => {
     if (message === '') {
-        inputMessage.classList.add('input--error');
-        messageError.classList.remove('is-hidden');
-        messageError.textContent = 'Por favor escribe tu problema para llegar a tu solución';
+        showInputError(inputMessage, messageError, 'Por favor escribe tu problema para llegar a tu solución.');
         return false;
     }
 
     if (message.length < 40) {
-        inputMessage.classList.add('input--error');
-        messageError.classList.remove('is-hidden');
-        messageError.textContent = 'Explicame a detalle tu problema para llegar una solición optima';
+        showInputError(inputMessage, messageError, 'Explícame más detalle tu problema para llegar una solución optima');
         return false;
     }
-    inputMessage.classList.remove('input--error');
-    messageError.classList.add('is-hidden');
-    messageError.textContent = ''
+    clearInputError(inputMessage, messageError);
     return true;
+};
+
+const showInputError = (input, output, message) => {
+    input.classList.add('input--error');
+    setMessageError(output, message)
+};
+
+const clearInputError = (input, output) => {
+    input.classList.remove('input--error');
+    output.classList.add('is-hidden');
+    output.textContent = '';
+};
+
+const setMessageError = (element, message = '') => {
+    element.classList.remove('is-hidden');
+    element.textContent = message;
 };
 
 openContentBtn.addEventListener('click', (e) => {
