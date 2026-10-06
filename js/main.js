@@ -26,12 +26,12 @@ form.addEventListener('submit', (e) => {
     const email = inputEmail.value.trim();
     const message = inputMessage.value.trim();
     if (options === false && name === '' && email === '' && message === '') {
-        validateOptions(options);
+        setOptionsErrorState(options);
         errorMessage.classList.remove('is-hidden');
         inputName.classList.add('input--error');
         inputEmail.classList.add('input--error');
         inputMessage.classList.add('input--error');
-        errorMessage.textContent = 'Por favor llena los campos.';
+        errorMessage.textContent = 'Please fill in all required fields.';
         return;
     }
     errorMessage.classList.add('is-hidden');
@@ -43,41 +43,46 @@ form.addEventListener('submit', (e) => {
     form.reset();
 });
 
-// const showOptionError = (selectedOptions) => {
-    
-// }
-
-const validateOptions = (options) => {
-    if (!options) {
+const setOptionsErrorState = (selectedOptions) => {
+    if (!selectedOptions) {
         optionsField.forEach(option => {
             option.closest('.input').classList.add('input--error');
         });
-        errorOption.classList.remove('is-hidden');
-        errorOption.textContent = 'Please select an option.';
         return false;
     }
     optionsField.forEach(option => {
         option.closest('.input').classList.remove('input--error');
     });
+    return true;
+}
+
+const validateOptions = (options) => {
+    if (!options) {
+        setOptionsErrorState(options);
+        errorOption.classList.remove('is-hidden');
+        errorOption.textContent = 'Please select an option.';
+        return false;
+    }
+    setOptionsErrorState(options);
     errorOption.classList.add('is-hidden');
     errorOption.textContent = '';
     return true;
 };
 
 const validateName = (name) => {
-    const regexName = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s'-]+$/;
     if (name === '') {
-        showInputError(inputName, nameError, 'Pon tu nombre por favor.');
+        showInputError(inputName, nameError, 'Please enter your name.');
         return false;
     }
 
     if (name.length < 2) {
-        showInputError(inputName, nameError, 'Nombre no valido.');
+        showInputError(inputName, nameError, 'Please enter a valid name.');
         return false;
     }
 
     if (!regexName.test(name)) {
-        showInputError(inputName, nameError, 'El formato no es valido.');
+        showInputError(inputName, nameError, 'Please use only letters, spaces, hyphens, and apostrophes in your name.');
         return false;
     }
     clearInputError(inputName, nameError);
@@ -87,12 +92,12 @@ const validateName = (name) => {
 const validateEmail = (email) => {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email === '') {
-        showInputError(inputEmail, emailError, 'Coloca tu correo electronico por favor.');
+        showInputError(inputEmail, emailError, 'Please enter your email address.');
         return false;
     }
 
     if (!regexEmail.test(email)) {
-        showInputError(inputEmail, emailError, 'El correo electronico no es valido, introduce un correo valido.');
+        showInputError(inputEmail, emailError, 'Please enter a valid email address.');
         return false;
     }
     clearInputError(inputEmail, emailError);
@@ -101,12 +106,12 @@ const validateEmail = (email) => {
 
 const validateMessage = (message) => {
     if (message === '') {
-        showInputError(inputMessage, messageError, 'Por favor escribe tu problema para llegar a tu solución.');
+        showInputError(inputMessage, messageError, 'Please describe your project.');
         return false;
     }
 
     if (message.length < 40) {
-        showInputError(inputMessage, messageError, 'Explícame más detalle tu problema para llegar una solución optima');
+        showInputError(inputMessage, messageError, 'Please provide more details about your project.');
         return false;
     }
     clearInputError(inputMessage, messageError);
