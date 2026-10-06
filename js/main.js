@@ -9,6 +9,8 @@ const footerContainer = document.querySelector('.card__footer');
 const headerBtn = document.querySelector('.header-btn');
 const breakpoint = window.matchMedia('(min-width: 768px)');
 const form = document.getElementById('formContact');
+const optionsField = document.querySelectorAll('#options input[type="radio"]');
+const errorOption = document.getElementById('optionsError');
 const errorMessage = document.getElementById('errorMessage');
 const inputName = document.getElementById('name');
 const nameError = document.getElementById('nameError');
@@ -19,11 +21,12 @@ const messageError = document.getElementById('messageError');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const options = form.querySelector('#options input[type="radio"]:checked');
+    const options = Array.from(optionsField).some(optionField => optionField.checked);
     const name = inputName.value.trim();
     const email = inputEmail.value.trim();
     const message = inputMessage.value.trim();
-    if (options === null && name === '' && email === '' && message === '') {
+    if (options === false && name === '' && email === '' && message === '') {
+        validateOptions(options);
         errorMessage.classList.remove('is-hidden');
         inputName.classList.add('input--error');
         inputEmail.classList.add('input--error');
@@ -33,11 +36,33 @@ form.addEventListener('submit', (e) => {
     }
     errorMessage.classList.add('is-hidden');
     errorMessage.textContent = '';
+    if (!validateOptions(options)) return;
     if (!validateName(name)) return;
     if (!validateEmail(email)) return;
     if (!validateMessage(message)) return;
     form.reset();
 });
+
+// const showOptionError = (selectedOptions) => {
+    
+// }
+
+const validateOptions = (options) => {
+    if (!options) {
+        optionsField.forEach(option => {
+            option.closest('.input').classList.add('input--error');
+        });
+        errorOption.classList.remove('is-hidden');
+        errorOption.textContent = 'Please select an option.';
+        return false;
+    }
+    optionsField.forEach(option => {
+        option.closest('.input').classList.remove('input--error');
+    });
+    errorOption.classList.add('is-hidden');
+    errorOption.textContent = '';
+    return true;
+};
 
 const validateName = (name) => {
     const regexName = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
