@@ -9,6 +9,7 @@ const footerContainer = document.querySelector('.card__footer');
 const headerBtn = document.querySelector('.header-btn');
 const breakpoint = window.matchMedia('(min-width: 768px)');
 const form = document.getElementById('formContact');
+const optionInput = document.getElementById('options');
 const optionsField = document.querySelectorAll('#options input[type="radio"]');
 const errorOption = document.getElementById('optionsError');
 const errorMessage = document.getElementById('errorMessage');
@@ -18,6 +19,12 @@ const inputEmail = document.getElementById('email');
 const emailError = document.getElementById('emailError');
 const inputMessage = document.getElementById('message');
 const messageError = document.getElementById('messageError');
+
+optionInput.addEventListener('change', (e) => {
+    if (!e.target.matches('input[type="radio"]')) return;
+    const isChecked = e.target.checked;
+    validateOptions(isChecked);
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
