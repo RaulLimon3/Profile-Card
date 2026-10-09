@@ -26,6 +26,21 @@ optionInput.addEventListener('change', (e) => {
     validateOptions(isChecked);
 });
 
+inputName.addEventListener('change', (e) => {
+    const nameValue = e.target.value.trim();
+    validateName(nameValue);
+});
+
+inputEmail.addEventListener('change', (e) => {
+    const emailValue = e.target.value.trim();
+    validateEmail(emailValue);
+});
+
+inputMessage.addEventListener('change', (e) => {
+    const messageValue = e.target.value.trim();
+    validateMessage(messageValue);
+});
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const options = Array.from(optionsField).some(optionField => optionField.checked);
