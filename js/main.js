@@ -98,7 +98,7 @@ const validateName = (name) => {
         return false;
     }
 
-    if (name.length < 2) {
+    if (name.length < 2 || name.length > 50) {
         showInputError(inputName, nameError, 'Please enter a valid name.');
         return false;
     }
@@ -132,8 +132,17 @@ const validateMessage = (message) => {
         return false;
     }
 
-    if (message.length < 40) {
+    if (message.length < 20) {
         showInputError(inputMessage, messageError, 'Please provide more details about your project.');
+        return false;
+    }
+
+    if (message.length > 2000) {
+        showInputError(
+            inputMessage,
+            messageError,
+            'Your message is a little too long. Please summarize it in 2,000 characters or fewer.'
+        );
         return false;
     }
     clearInputError(inputMessage, messageError);
