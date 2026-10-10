@@ -58,10 +58,11 @@ form.addEventListener('submit', (e) => {
     }
     errorMessage.classList.add('is-hidden');
     errorMessage.textContent = '';
-    if (!validateOptions(options)) return;
-    if (!validateName(name)) return;
-    if (!validateEmail(email)) return;
-    if (!validateMessage(message)) return;
+    const isOptionsValid = validateOptions(options);
+    const isNameValid = validateName(name);
+    const isEmailValid = validateEmail(email);
+    const isMessageValid = validateMessage(message);
+    if (!isOptionsValid || !isNameValid || !isEmailValid || !isMessageValid) return;
     form.reset();
 });
 
