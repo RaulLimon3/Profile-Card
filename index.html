@@ -181,8 +181,8 @@
                             <h3 class="form__subtitle">Have a project in mind?</h3>
                             <p class="form__description">Let's build it together.</p>
                         </div>
-                        <form action="#" method="get" class="form" id="formContact">
-                            <span class="form__error is-hidden" id="errorMessage">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, consectetur.</span>
+                        <form action="https://formspree.io/f/meaeklkw" method="post" class="form" id="formContact">
+                            <span class="form__error is-hidden" id="errorMessage"></span>
                             <fieldset class="form__field-options" id="options">
                                 <legend class="label">I'm interested in... <span class="required">*</span></legend>
                                 <label class="input input-checkbox">
@@ -209,19 +209,19 @@
                             </fieldset>
                             <div class="form__field">
                                 <label class="label" for="name">Name: <span class="required">*</span></label>
-                                <input class="input" type="text" name="name" id="name" placeholder="Ej: John Doe, Taylor Reed">
-                                <span class="input__error is-hidden" id="nameError">Lorem ipsum dolor sit amet.</span>
+                                <input class="input" type="text" name="name" id="name" placeholder="Ej: John Doe, Taylor Reed" autocomplete="name">
+                                <span class="input__error is-hidden" id="nameError"></span>
                             </div>
                             <div class="form__field">
                                 <label class="label" for="email">Email: <span class="required">*</span></label>
-                                <input class="input" type="email" name="email" id="email" placeholder="Ej: jhon.doe@example.com">
-                                <span class="input__error is-hidden" id="emailError">Lorem ipsum dolor sit amet.</span>
+                                <input class="input" type="email" name="email" id="email" placeholder="Ej: jhon.doe@example.com" autocomplete="email">
+                                <span class="input__error is-hidden" id="emailError"></span>
                             </div>
                             <div class="form__field">
                                 <label for="message" class="label">Tell me about your project: <span class="required">*</span></label>
                                 <textarea name="message" id="message" class="input"
                                     placeholder="Describe your project, its goals, and the features or information you’d like it to include"></textarea>
-                                <span class="input__error is-hidden" id="messageError">Lorem ipsum dolor sit amet.</span>
+                                <span class="input__error is-hidden" id="messageError"></span>
                             </div>
                             <button type="submit" class="btn btn-submit">Get in touch</button>
                         </form>

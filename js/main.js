@@ -42,7 +42,6 @@ inputMessage.addEventListener('change', (e) => {
 });
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
     const options = Array.from(optionsField).some(optionField => optionField.checked);
     const name = inputName.value.trim();
     const email = inputEmail.value.trim();
@@ -54,6 +53,7 @@ form.addEventListener('submit', (e) => {
         inputEmail.classList.add('input--error');
         inputMessage.classList.add('input--error');
         errorMessage.textContent = 'Please fill in all required fields.';
+        e.preventDefault();
         return;
     }
     errorMessage.classList.add('is-hidden');
@@ -62,8 +62,10 @@ form.addEventListener('submit', (e) => {
     const isNameValid = validateName(name);
     const isEmailValid = validateEmail(email);
     const isMessageValid = validateMessage(message);
-    if (!isOptionsValid || !isNameValid || !isEmailValid || !isMessageValid) return;
-    form.reset();
+    if (!isOptionsValid || !isNameValid || !isEmailValid || !isMessageValid) {
+        e.preventDefault();
+        return;
+    };
 });
 
 const clearForm = () => {
