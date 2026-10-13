@@ -20,6 +20,8 @@ const emailError = document.getElementById('emailError');
 const inputMessage = document.getElementById('message');
 const messageError = document.getElementById('messageError');
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meaeklkw';
+
 optionInput.addEventListener('change', (e) => {
     if (!e.target.matches('input[type="radio"]')) return;
     const isChecked = e.target.checked;
@@ -41,7 +43,8 @@ inputMessage.addEventListener('change', (e) => {
     validateMessage(messageValue);
 });
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const options = Array.from(optionsField).some(optionField => optionField.checked);
     const name = inputName.value.trim();
     const email = inputEmail.value.trim();
@@ -53,7 +56,6 @@ form.addEventListener('submit', (e) => {
         inputEmail.classList.add('input--error');
         inputMessage.classList.add('input--error');
         errorMessage.textContent = 'Please fill in all required fields.';
-        e.preventDefault();
         return;
     }
     errorMessage.classList.add('is-hidden');
@@ -63,9 +65,38 @@ form.addEventListener('submit', (e) => {
     const isEmailValid = validateEmail(email);
     const isMessageValid = validateMessage(message);
     if (!isOptionsValid || !isNameValid || !isEmailValid || !isMessageValid) {
-        e.preventDefault();
         return;
     };
+    const selectedOption = form.querySelector('#options input[type="radio"]:checked');
+    const info = {
+        interest: selectedOption.value,
+        name,
+        email,
+        message
+    };
+
+    try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-type" : "application/json",
+                "Accept" : "application/json"
+            },
+            body: JSON.stringify(info)
+        });
+        const result = await response.json();
+
+        if (response.ok) {
+            console.log('Thank you! Your message has been sent successfully.');
+            form.reset();
+        } else {
+            if (!result.errors) {
+                showGlobalMessage('There was a problem submitting the form.');
+            }
+        }
+    } catch (error) {
+        showGlobalMessage('Network error. Try again later.');
+    }
 });
 
 const clearForm = () => {
@@ -80,7 +111,17 @@ const clearForm = () => {
         error.textContent = '';
     });
     form.reset();
-}
+};
+
+const showGlobalMessage = (message) => {
+    errorMessage.classList.remove('is-hidden');
+    errorMessage.textContent = message;
+};
+
+const clearGlobalMessage = () => {
+    errorMessage.classList.add('is-hidden');
+    errorMessage.textContent = '';
+};
 
 const setOptionsErrorState = (selectedOptions) => {
     if (!selectedOptions) {
