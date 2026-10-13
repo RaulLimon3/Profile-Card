@@ -66,6 +66,20 @@ form.addEventListener('submit', (e) => {
     form.reset();
 });
 
+const clearForm = () => {
+    const globalError = form.querySelector('#errorMessage');
+    const inputs = form.querySelectorAll('.input');
+    const inputsError = form.querySelectorAll('.input__error');
+    globalError.classList.add('is-hidden');
+    globalError.textContent = '';
+    inputs.forEach(input => input.classList.remove('input--error'));
+    inputsError.forEach(error => {
+        error.classList.add('is-hidden');
+        error.textContent = '';
+    });
+    form.reset();
+}
+
 const setOptionsErrorState = (selectedOptions) => {
     if (!selectedOptions) {
         optionsField.forEach(option => {
@@ -201,6 +215,7 @@ openFormBtn.addEventListener('click', (e) => {
 closedFormBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
     if (!btn) return;
+    clearForm();
     footerContainer.classList.remove('is-hidden');
     headerBtn.classList.remove('is-show');
     closedFormBtn.classList.remove('is-show');
