@@ -19,6 +19,7 @@ const inputEmail = document.getElementById('email');
 const emailError = document.getElementById('emailError');
 const inputMessage = document.getElementById('message');
 const messageError = document.getElementById('messageError');
+const modal = document.getElementById('modal');
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meaeklkw';
 
@@ -222,6 +223,17 @@ const setMessageError = (element, message = '') => {
     element.classList.remove('is-hidden');
     element.textContent = message;
 };
+
+const handelModal = () => {
+    const closeModalBtn = modal.querySelector('#closeModal');
+    modal.classList.add('active');
+    closeModalBtn.addEventListener('click', (e) => {
+        const btn = e.target.closest('.modal__closed-btn');
+        if (!btn) return;
+        modal.classList.remove('active');
+    });
+};
+
 
 openContentBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');

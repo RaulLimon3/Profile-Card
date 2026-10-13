@@ -20,8 +20,8 @@
                 <header class="card__header" id="headerContainer">
                     <div class="header-container">
                         <div class="header-image">
-                            <img src="./public/img/profile-img.jpeg" class="img"
-                                alt="Raul's profile picture" title="Raul's profile picture">
+                            <img src="./public/img/profile-img.jpeg" class="img" alt="Raul's profile picture"
+                                title="Raul's profile picture">
                         </div>
                         <div class="header-resume">
                             <h1 class="header-resume__name">Raúl Limón</h1>
@@ -190,35 +190,42 @@
                                     Business Website
                                 </label>
                                 <label class="input input-checkbox">
-                                    <input type="radio" name="interest" id="landingPage" value="landingpage" class="checkbox">
+                                    <input type="radio" name="interest" id="landingPage" value="landingpage"
+                                        class="checkbox">
                                     Landing Page
                                 </label>
                                 <label class="input input-checkbox">
-                                    <input type="radio" name="interest" id="Dashboard" value="dashboard" class="checkbox">
+                                    <input type="radio" name="interest" id="Dashboard" value="dashboard"
+                                        class="checkbox">
                                     Dashboard
                                 </label>
                                 <label class="input input-checkbox">
-                                    <input type="radio" name="interest" id="ecommerce" value="ecommerce" class="checkbox">
+                                    <input type="radio" name="interest" id="ecommerce" value="ecommerce"
+                                        class="checkbox">
                                     E-commerce interface
                                 </label>
                                 <label class="input input-checkbox">
                                     <input type="radio" name="interest" id="webapp" value="webapp" class="checkbox">
                                     Web application interface
                                 </label>
-                                <span class="input__error is-hidden" id="optionsError">Lorem ipsum dolor sit amet.</span>
+                                <span class="input__error is-hidden" id="optionsError">Lorem ipsum dolor sit
+                                    amet.</span>
                             </fieldset>
                             <div class="form__field">
                                 <label class="label" for="name">Name: <span class="required">*</span></label>
-                                <input class="input" type="text" name="name" id="name" placeholder="Ej: John Doe, Taylor Reed" autocomplete="name">
+                                <input class="input" type="text" name="name" id="name"
+                                    placeholder="Ej: John Doe, Taylor Reed" autocomplete="name">
                                 <span class="input__error is-hidden" id="nameError"></span>
                             </div>
                             <div class="form__field">
                                 <label class="label" for="email">Email: <span class="required">*</span></label>
-                                <input class="input" type="email" name="email" id="email" placeholder="Ej: jhon.doe@example.com" autocomplete="email">
+                                <input class="input" type="email" name="email" id="email"
+                                    placeholder="Ej: jhon.doe@example.com" autocomplete="email">
                                 <span class="input__error is-hidden" id="emailError"></span>
                             </div>
                             <div class="form__field">
-                                <label for="message" class="label">Tell me about your project: <span class="required">*</span></label>
+                                <label for="message" class="label">Tell me about your project: <span
+                                        class="required">*</span></label>
                                 <textarea name="message" id="message" class="input"
                                     placeholder="Describe your project, its goals, and the features or information you’d like it to include"></textarea>
                                 <span class="input__error is-hidden" id="messageError"></span>
@@ -234,6 +241,32 @@
             </div>
         </div>
     </main>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal__header">
+                <button type="button" id="closeModal" class="modal__closed-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-x preview-icon">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-mail preview-icon">
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+            </div>
+            <span class="modal__message">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quae temporibus deserunt
+                voluptatem.
+            </span>
+        </div>
+    </div>
 </body>
 
 </html>
