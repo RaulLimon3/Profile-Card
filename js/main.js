@@ -20,6 +20,7 @@ const emailError = document.getElementById('emailError');
 const inputMessage = document.getElementById('message');
 const messageError = document.getElementById('messageError');
 const modal = document.getElementById('modal');
+const closeModalBtn = modal.querySelector('#closeModal');
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meaeklkw';
 
@@ -224,16 +225,24 @@ const setMessageError = (element, message = '') => {
     element.textContent = message;
 };
 
-const handelModal = () => {
-    const closeModalBtn = modal.querySelector('#closeModal');
+const openModal = () => {
     modal.classList.add('active');
-    closeModalBtn.addEventListener('click', (e) => {
-        const btn = e.target.closest('.modal__closed-btn');
-        if (!btn) return;
-        modal.classList.remove('active');
-    });
 };
 
+const closedModal = () => {
+    modal.classList.remove('active');
+};
+
+const handelModal = (status, message = '') => {
+    const modalMessage = modal.querySelector('.modal__message');
+    let modalStatus = modal.querySelector(`.icon__status-${status}`);
+};
+
+closeModalBtn.addEventListener('click', (e) => {
+    const btn = e.target.closest('.modal__closed-btn');
+    if (!btn) return;
+    closedModal();
+});
 
 openContentBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');

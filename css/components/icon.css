@@ -1,0 +1,22 @@
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+.icon__status {
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 100%;
+}
+
+.icon__status-success {
+    background: #44BBA4;
+}
+
+.icon__status-error {
+    background: #E94F37;
+}
