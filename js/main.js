@@ -81,23 +81,32 @@ form.addEventListener('submit', async (e) => {
         const response = await fetch(FORMSPREE_ENDPOINT, {
             method: "POST",
             headers: {
-                "Content-type" : "application/json",
-                "Accept" : "application/json"
+                "Content-type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(info)
         });
         const result = await response.json();
 
-        if (response.ok) {
-            console.log('Thank you! Your message has been sent successfully.');
-            form.reset();
-        } else {
-            if (!result.errors) {
-                showGlobalMessage('There was a problem submitting the form.');
-            }
+        if (!response.ok) {
+            const formErrors = Array.isArray(result.errors)
+                ? result.errors.map(error => error.message).join(' ')
+                : '';
+            handelModal(
+                'error',
+                formErrors || 'We couldn’t send your message. Please try again.'
+            );
+            return;
         }
+
+        handelModal(
+            'success',
+            'Your message was sent successfully.\n Thank you for reaching out! I’ll get back to you within 24–48 hours.'
+        );
+        form.reset();
     } catch (error) {
-        showGlobalMessage('Network error. Try again later.');
+        console.log('Form submission failed: ', error);
+        handelModal('error', 'We couldn’t complete your request. Please check your connection and try again.');
     }
 });
 
@@ -234,13 +243,19 @@ const closedModal = () => {
 };
 
 const handelModal = (status, message = '') => {
+    const modalStatus = modal.querySelector(`.icon__status-${status}`);
     const modalMessage = modal.querySelector('.modal__message');
-    let modalStatus = modal.querySelector(`.icon__status-${status}`);
+    if (!modalStatus) return;
+    modalStatus.classList.remove('is-hidden');
+    modalMessage.textContent = message;
+    openModal();
 };
 
 closeModalBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.modal__closed-btn');
     if (!btn) return;
+    modal.querySelectorAll('.icon__status').forEach(icon => icon.classList.add('is-hidden'));
+    modal.querySelector('.modal__message').textContent = '';
     closedModal();
 });
 
