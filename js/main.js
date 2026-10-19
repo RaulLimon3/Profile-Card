@@ -47,6 +47,7 @@ inputMessage.addEventListener('change', (e) => {
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const submitBtn = form.querySelector('.btn-submit');
     const options = Array.from(optionsField).some(optionField => optionField.checked);
     const name = inputName.value.trim();
     const email = inputEmail.value.trim();
@@ -69,6 +70,10 @@ form.addEventListener('submit', async (e) => {
     if (!isOptionsValid || !isNameValid || !isEmailValid || !isMessageValid) {
         return;
     };
+    const originalButtonText = submitBtn.textContent;
+    submitBtn.classList.add('btn-submit--active');
+    submitBtn.textContent = 'Sending message...';
+    submitBtn.disabled = true;
     const selectedOption = form.querySelector('#options input[type="radio"]:checked');
     const info = {
         interest: selectedOption.value,
@@ -101,12 +106,16 @@ form.addEventListener('submit', async (e) => {
 
         handelModal(
             'success',
-            'Your message was sent successfully.\n Thank you for reaching out! I’ll get back to you within 24–48 hours.'
+            'Your message was sent successfully. Thank you for reaching out! I’ll get back to you within 24–48 hours.'
         );
         form.reset();
     } catch (error) {
         console.log('Form submission failed: ', error);
         handelModal('error', 'We couldn’t complete your request. Please check your connection and try again.');
+    } finally {
+        submitBtn.classList.remove('btn-submit--active');
+        submitBtn.textContent = originalButtonText;
+        submitBtn.disabled = false;
     }
 });
 

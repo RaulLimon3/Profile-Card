@@ -24,6 +24,10 @@
     color: #fff;
 }
 
+.btn-submit--active {
+    background: #3F88C5;
+}
+
 .btn-close:hover {
     background: #E94F37;
 }
