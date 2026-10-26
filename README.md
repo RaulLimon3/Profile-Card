@@ -1,40 +1,77 @@
 # Profile Card 🪪
 
-A responsive profile card built with **HTML5** and **CSS3**, designed to showcase personal information in a clean, modern and professional UI.
+A responsive profile card and contact page built with **HTML5**, **CSS3**, and **JavaScript**. It showcases profile information and lets visitors send project inquiries through a validated contact form.
 
-This project is part of my frontend practice roadmap, focused on building reusable UI components and improving CSS architecture.
+---
 
+## 🚀 Live Demo
+
+🔗  [Profile card](https://raullimon3.github.io/Profile-Card/)
+
+---
+
+## 📸 Screenshots
+
+![Initial mobile profile view](./screenshots/mobile-profile.png)
+![Expanded profile on desktop](./screenshots/desktop-about.png)
+![Contact form](./screenshots/contact-form.png)
+![Submission status](./screenshots/submission-status.png)
+
+---
 
 ## 📌 Features
 
-- Responsive design (mobile, tablet and desktop)
-- Modern UI layout
-- Custom typography (Google Fonts)
-- Social media integration (Font Awesome icons)
-- Clean and maintainable CSS
+- Responsive profile card with interactive views
+- Project inquiry form with client-side validation
+- Asynchronous form submission using Formspree
+- Loading state to prevent duplicate submissions
+- Success and error feedback in a modal
+- CSS organized by layout, sections, components, and utilities
+- JavaScript organized into ES modules
 
+---
 
 ## 🛠️ Built With
 
 - HTML5
 - CSS3
+- JavaScript (ES modules, Fetch API)
+- Formspree
 - Google Fonts
 - Font Awesome
 - Git & GitHub
 
+---
+
 ## 📂 Project Structure
 
 ```
-profile-card/
-│
+01-profile-card/
 ├── index.html
 ├── css/
-│ └── style.css
+│   ├── base/
+│   ├── components/
+│   ├── layout/
+│   ├── sections/
+│   ├── utils/
+│   └── style.css
+├── js/
+│   ├── api.js
+│   ├── form.js
+│   ├── main.js
+│   ├── modal.js
+│   └── validation.js
 ├── public/
-│ └── img/
+│   └── img/
+├── screenshots/
+│   ├── mobile-profile.png
+│   ├── desktop-about.png
+│   ├── contact-form.png
+│   └── submission-statuses.png
 └── README.md
 ```
 
+---
 
 ## 🧪 Versioning
 
@@ -42,31 +79,46 @@ This project follows a simple versioning system:
 
 | Version | Description |
 |--------|-------------|
-| v1.0 | Initial stable version with full responsive layout |
-| v2.0 *(planned)* | CSS refactor using `clamp()`, CSS variables, fluid units and reduced media queries |
+| v1.0 | Responsive profile card with the initial layout and profile content |
+| v2.0 | Interactive profile views, modular JavaScript, contact form validation, and asynchronous Formspree submission with success and error feedback |
+| Next | Continue improving accessibility and testing across devices and form states |
 
+---
 
 ## 📈 Learning Goals
 
 This project was created to practice:
 
-- Semantic HTML structure
-- Modern CSS layout techniques
-- Responsive design principles
-- Version control with Git
-- Professional project organization
+- Structuring a page with semantic HTML
+- Building responsive layouts with CSS and media queries
+- Organizing styles into reusable component files
+- Using JavaScript modules to separate application responsibilities
+- Handling DOM events and interactive UI states
+- Validating form inputs and displaying field-level feedback
+- Sending form data asynchronously with the Fetch API
+- Handling loading, success, and error states
+- Integrating a third-party form service with Formspree
+- Using Git branches and commits to track development
+
+The project is still evolving, with responsive behavior, accessibility, and testing improvements planned.
+
+---
 
 ## 👤 Author
 
-**Raúl Limón**  
-Frontend Developer  
+Developed by **Raúl Limón**  
+Frontend Developer focused on building scalable and maintainable web applications while continuously improving JavaScript and frontend architecture skills.
 
 - GitHub: [RaulLimon3](https://github.com/RaulLimon3)  
-- LinkedIn: https://www.linkedin.com/in/raul-limon-garcia/
+- LinkedIn: [Raúl Limón]https://www.linkedin.com/in/raul-limon-garcia/
+
+---
 
 ## 📄 License
 
 This project is open source and available for learning and portfolio purposes.
+
+---
 
 ## 🧩 Development Stages
 
