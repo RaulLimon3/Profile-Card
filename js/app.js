@@ -9,7 +9,6 @@ const bodyContent = document.getElementById('bodyContent');
 const formContainer = document.getElementById('formContainer');
 const footerContainer = document.querySelector('.card__footer');
 const headerBtn = document.querySelector('.header-btn');
-const breakpoint = window.matchMedia('(min-width: 768px)');
 
 openContentBtn.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
@@ -67,15 +66,5 @@ formContainer.addEventListener('transitionend', (e) => {
         });
     }
 });
-
-const handleButtons = (e) => {
-    if (!e.matches) {
-        openFormBtn.classList.remove('is-show');
-    }
-};
-
-breakpoint.addEventListener('change', handleButtons);
-
-handleButtons(breakpoint);
 
 initForm();
