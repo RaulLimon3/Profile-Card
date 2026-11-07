@@ -6,7 +6,7 @@ A responsive profile card and contact page built with **HTML5**, **CSS3**, and *
 
 ## 🚀 Live Demo
 
-🔗  [Profile card](https://raullimon3.github.io/Profile-Card/)
+🔗  [Profile card](https://jazzy-strudel-30cd5f.netlify.app/)
 
 ---
 
